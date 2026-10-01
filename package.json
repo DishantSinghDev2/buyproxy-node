@@ -1,0 +1,42 @@
+{
+  "name": "buyproxy",
+  "version": "1.0.0",
+  "description": "Official BuyProxy SDK for Node.js, TypeScript, Bun, Deno and edge runtimes — generate residential, mobile, ISP and datacenter proxies, manage reseller customers, and top up bandwidth.",
+  "keywords": [
+    "buyproxy", "proxy", "proxies", "residential proxies", "rotating proxies", "mobile proxies", "isp proxies",
+    "datacenter proxies", "socks5", "proxy api", "proxy sdk", "web scraping", "scraping", "geo-targeting",
+    "sticky sessions", "reseller", "playwright", "puppeteer", "typescript"
+  ],
+  "homepage": "https://www.buyproxy.org/docs/sdks",
+  "bugs": { "url": "https://github.com/DishantSinghDev2/buyproxy-node/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/DishantSinghDev2/buyproxy-node.git" },
+  "license": "MIT",
+  "author": "BuyProxy <support@buyproxy.org> (https://www.buyproxy.org)",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "publishConfig": { "access": "public", "provenance": true },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}
